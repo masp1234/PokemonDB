@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8"/>
     <title></title>
-    <link rel="stylesheet" href="../static/styles/file-name-here.css" th:href="@{/styles/file-name-here.css}"/>
+    <link rel="stylesheet" href="../static/styles/form.css" th:href="@{/styles/form.css}"/>
+    <link rel="stylesheet" href="../static/styles/page-container.css" th:href="@{/styles/page-container.css}"/>
 </head>
 <body>
-<h1> List of Pokemon</h1>
-<table>
-    <tr>
-        <th>Pokedex number</th>
-        <th>Name</th>
-        <th>Speed</th>
-        <th>Special defence</th>
-        <th>Special attack</th>
-        <th>Defence</th>
-        <th>Attack</th>
-        <th>HP</th>
-        <th>Primary type</th>
-        <th>Secondary type</th>
-    </tr>
+    <div class="page-container">
+    <h1> List of Pokemon</h1>
+    <table>
+        <tr>
+            <th>Pokedex number</th>
+            <th>Name</th>
+            <th>Speed</th>
+            <th>Special defence</th>
+            <th>Special attack</th>
+            <th>Defence</th>
+            <th>Attack</th>
+            <th>HP</th>
+            <th>Primary type</th>
+            <th>Secondary type</th>
+        </tr>
 
-    <tr th:each="pokemon: ${pokemon}">
-        <td th:text="${pokemon.pokedexNumber}">1</td>
-        <td th:text="${pokemon.name}">Pokemon</td>
-        <td th:text="${pokemon.speed}">50</td>
-        <td th:text="${pokemon.specialDefence}">60</td>
-        <td th:text="${pokemon.specialAttack}">80</td>
-        <td th:text="${pokemon.defence}">30</td>
-        <td th:text="${pokemon.attack}">55</td>
-        <td th:text="${pokemon.hp}">120</td>
-        <td th:text="${pokemon.primaryType}">Grass</td>
-        <td th:text="${pokemon.secondaryType}">Ghost</td>
+        <tr th:each="pokemon: ${pokemon}">
+            <td th:text="${pokemon.pokedexNumber}">1</td>
+            <td th:text="${pokemon.name}">Pokemon</td>
+            <td th:text="${pokemon.speed}">50</td>
+            <td th:text="${pokemon.specialDefence}">60</td>
+            <td th:text="${pokemon.specialAttack}">80</td>
+            <td th:text="${pokemon.defence}">30</td>
+            <td th:text="${pokemon.attack}">55</td>
+            <td th:text="${pokemon.hp}">120</td>
+            <td th:text="${pokemon.primaryType}">Grass</td>
+            <td th:text="${pokemon.secondaryType}">Ghost</td>
 
-        <!--
-            Kan ikke få til at virke
-         <td>
-             <form th:action="/allPokemon/{id}" th:object="${pokemon}" method="delete">
-                 <input type="hidden" th:field="*{pokemon}">Delete</input>
-                 <button type="submit" >Click here</button>
-             </form>
-         </td> -->
+            <!--
+                Kan ikke få til at virke
+            <td>
+                <form th:action="/allPokemon/{id}" th:object="${pokemon}" method="delete">
+                    <input type="hidden" th:field="*{pokemon}">Delete</input>
+                    <button type="submit" >Click here</button>
+                </form>
+            </td> -->
 
-    </tr>
+        </tr>
 
-</table>
-<form action="/all-pokemon" method="POST">
-    <label for="pokedexNumber">Pokedex Number</label>
-        <input type="number" name="pokedexNumber">
+    </table>
+    <form class="form-container" action="/all-pokemon" method="POST">
+        <label for="pokedexNumber">Pokedex Number</label>
+            <input type="number" name="pokedexNumber">
 
-        <button type="submit">Submit</button>
-</form>
-
+            <button type="submit">Submit</button>
+    </form>
+</div>
 </body>
 </html>

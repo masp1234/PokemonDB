@@ -1,0 +1,7 @@
+.page-container {
+    margin: 15% 15%;
+}
+.section-container {
+    display: flex;
+    flex-direction: row;
+}

@@ -22,7 +22,8 @@
         <th>Secondary type</th>
     </tr>
 
-    <tr th:each="pokemon: ${pokemon}">
+    <!-- Slette pokemon og returnerer til controller -> sende pokemon med i model -> return "delete-pokemon-success"-->
+    <tr>
         <td th:text="${pokemon.pokedexNumber}">1</td>
         <td th:text="${pokemon.name}">Pokemon</td>
         <td th:text="${pokemon.speed}">50</td>

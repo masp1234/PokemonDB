@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../static/styles/form.css" th:href="@{/styles/form.css}"/>
+    <link rel="stylesheet" href="../static/styles/page-container.css" th:href="@{/styles/page-container}"/>
+</head>
+<body>
+
+<div class="page-container">
+
+
+    <section class="section-container">
+        <form class="form-container" action="/all-pokemon" method="POST">
+            <label for="pokedexNumber">Pokedex Number</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Attack</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Defence</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">HP</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Name</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Primary Type</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Secondary Type</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Special Attack</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Special Defence</label>
+            <input type="number" name="pokedexNumber">
+
+            <label for="pokedexNumber">Speed</label>
+            <input type="number" name="pokedexNumber">
+
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <img src="../static/gifs/pokeball.gif" alt="pokeball">
+        
+    </section>
+</div>
+</body>
+</html>
