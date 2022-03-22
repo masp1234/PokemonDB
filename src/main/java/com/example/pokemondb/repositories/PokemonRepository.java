@@ -90,7 +90,7 @@ public class PokemonRepository {
         }
     }
 
-    public void deletePokemon(int id) {
+    public Pokemon deletePokemon(int id) {
         Pokemon selectedPokemon = selectPokemon(id);
         String query = "DELETE FROM pokemon WHERE pokedex_number=?";
 
@@ -103,9 +103,8 @@ public class PokemonRepository {
         } catch (Exception e) {
             System.out.print("kunne ikke slette pokemon: ");
             e.printStackTrace();
-
-
         }
+        return selectedPokemon;
     }
 
     public static Pokemon selectPokemon(int id) {

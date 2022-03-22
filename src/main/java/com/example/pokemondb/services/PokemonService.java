@@ -17,4 +17,8 @@ public class PokemonService {
     public List<Pokemon> getAllPokemon() {
         return pokemonRepository.getAllPokemon();
     }
+
+    public Pokemon deletePokemon(int id) {
+        return pokemonRepository.deletePokemon(id);
+    }
 }

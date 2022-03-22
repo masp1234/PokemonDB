@@ -1,11 +1,12 @@
 package com.example.pokemondb.controllers;
 
 
+import com.example.pokemondb.models.Pokemon;
 import com.example.pokemondb.services.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PokemonController {
@@ -23,5 +24,11 @@ public class PokemonController {
 
         return "all-pokemon.html";
 
+    }
+    @PostMapping(value = "/all-pokemon")
+    public String deletePokemon(@RequestParam("pokedexNumber") int id) {
+       pokemonService.deletePokemon(id);
+
+        return "redirect:/";
     }
 }
