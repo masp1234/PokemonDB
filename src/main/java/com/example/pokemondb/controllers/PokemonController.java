@@ -29,7 +29,7 @@ public class PokemonController {
     public String deletePokemon(@RequestParam("pokedexNumber") int id) {
        pokemonService.deletePokemon(id);
 
-        return "redirect:/";
+        return "redirect:/allPokemon";
     }
     @PostMapping(value = "/add-new-pokemon")
     public String addPokemon(@RequestParam("pokedexNumber") int id,
@@ -45,7 +45,7 @@ public class PokemonController {
         pokemonService.addPokemon(id, attack, defence, hp, name, primaryType,
                 secondaryType, specialAttack, specialDefence, speed);
 
-        return "redirect:/";
+        return "redirect:/allPokemon";
     }
     @GetMapping("/addNewPokemon")
     public String addPokemonPage() {
