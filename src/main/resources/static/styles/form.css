@@ -1,7 +1,10 @@
 .form-container {
     display: flex;
     flex-direction: column;
+    padding: 5% 5%;
+    
 }
 label {
     font-family: fantasy;
+
 }

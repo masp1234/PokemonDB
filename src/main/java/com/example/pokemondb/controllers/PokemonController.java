@@ -31,4 +31,24 @@ public class PokemonController {
 
         return "redirect:/";
     }
+    @PostMapping(value = "/add-new-pokemon")
+    public String addPokemon(@RequestParam("pokedexNumber") int id,
+                             @RequestParam("attack") int attack,
+                             @RequestParam("defence") int defence,
+                             @RequestParam("hp") int hp,
+                             @RequestParam("name") String name,
+                             @RequestParam("primaryType") String primaryType,
+                             @RequestParam("secondaryType") String secondaryType,
+                             @RequestParam("specialAttack") int specialAttack,
+                             @RequestParam("specialDefence") int specialDefence,
+                             @RequestParam("speed") int speed) {
+        pokemonService.addPokemon(id, attack, defence, hp, name, primaryType,
+                secondaryType, specialAttack, specialDefence, speed);
+
+        return "redirect:/";
+    }
+    @GetMapping("/addNewPokemon")
+    public String addPokemonPage() {
+        return "add-new-pokemon.html";
+    }
 }
