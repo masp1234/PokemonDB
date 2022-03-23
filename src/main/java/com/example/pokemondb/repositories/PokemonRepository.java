@@ -51,21 +51,20 @@ public class PokemonRepository {
         return pokemons;
     }
 
-    public void insertPokemon(int pokedexNumber, String name, int speed, int specialDefence, int specialAttack,
-                              int defence, int attack, int hp, String primaryType, String secondaryType) {
+    public void insertPokemon(Pokemon pokemon) {
         String query = "INSERT INTO pokemon VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, pokedexNumber);
-            ps.setInt(2, attack);
-            ps.setInt(3, defence);
-            ps.setInt(4, hp);
-            ps.setString(5, name);
-            ps.setString(6, primaryType);
-            ps.setString(7, secondaryType);
-            ps.setInt(8, specialDefence);
-            ps.setInt(9, specialAttack);
-            ps.setInt(10, speed);
+            ps.setInt(1, pokemon.getPokedexNumber());
+            ps.setInt(2, pokemon.getAttack());
+            ps.setInt(3, pokemon.getDefence());
+            ps.setInt(4, pokemon.getHp());
+            ps.setString(5, pokemon.getName());
+            ps.setString(6, pokemon.getPrimaryType());
+            ps.setString(7, pokemon.getSecondaryType());
+            ps.setInt(8, pokemon.getSpecialDefence());
+            ps.setInt(9, pokemon.getSpecialAttack());
+            ps.setInt(10, pokemon.getSpeed());
 
             ps.executeUpdate();
 

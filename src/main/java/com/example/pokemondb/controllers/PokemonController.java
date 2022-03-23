@@ -42,8 +42,8 @@ public class PokemonController {
                              @RequestParam("specialAttack") int specialAttack,
                              @RequestParam("specialDefence") int specialDefence,
                              @RequestParam("speed") int speed) {
-        pokemonService.addPokemon(id, attack, defence, hp, name, primaryType,
-                secondaryType, specialAttack, specialDefence, speed);
+        pokemonService.addPokemon(new Pokemon(id, name, speed, specialDefence, specialAttack,
+                                                defence, attack, hp, primaryType, secondaryType));
 
         return "redirect:/allPokemon";
     }
