@@ -38,4 +38,10 @@ public class Pokemon {
         this.primaryType = primaryType;
         this.secondaryType = secondaryType;
     }
+
+    @Override
+    public String toString() {
+        return "pokedexNumber = " + pokedexNumber +
+                ", name = " + name;
+    }
 }

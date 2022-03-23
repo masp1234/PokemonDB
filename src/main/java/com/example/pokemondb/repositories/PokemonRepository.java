@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public class PokemonRepository {
-    private static String DB_URL = "jdbc:mysql://localhost:3306/pokedex?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
+    private static String DB_URL = "jdbc:mysql://localhost:3306/pokemon?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
     private static String user = "root";
     private static String password = "masp123123";
     private static Connection connection;
@@ -39,10 +39,6 @@ public class PokemonRepository {
                 int specialDefence = rs.getInt(8);
                 int specialAttack = rs.getInt(9);
                 int speed = rs.getInt(10);
-
-
-
-
 
                 pokemons.add(new Pokemon(pokedexNumber, name, speed,
                         specialDefence, specialAttack, defence, attack,
