@@ -26,4 +26,8 @@ public class PokemonService {
     public void addPokemon(Pokemon pokemon) {
         pokemonRepository.insertPokemon(pokemon);
     }
+
+    public Pokemon selectById(int id) {
+        return pokemonRepository.selectById(id);
+    }
 }

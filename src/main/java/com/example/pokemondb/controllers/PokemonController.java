@@ -35,10 +35,25 @@ public class PokemonController {
         return "redirect:/allPokemon";
     }
 
-    @GetMapping("/selectPokemon/{id}")
-    public String selectPokemon(@PathVariable("id") int id) {
 
+
+    @GetMapping("/show/{id}")
+    public String selectPokemon(@PathVariable("id") int id, Model model) {
+        Pokemon selectedPokemon = pokemonService.selectById(id);
+        int tal = selectedPokemon.getPokedexNumber();
+        model.addAttribute("pokemon", selectedPokemon);
+        return "redirect:/showSinglePokemon";
     }
+
+    @GetMapping("/showSinglePokemon")
+    public String showPokemon(){
+
+        return "show-single-pokemon";
+    }
+
+
+
+
         /*
     @PostMapping(value = "/all-pokemon")
     public String deletePokemon(@RequestParam("pokedexNumber") int id) {

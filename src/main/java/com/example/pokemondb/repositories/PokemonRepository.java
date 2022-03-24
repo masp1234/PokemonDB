@@ -12,7 +12,7 @@ import java.util.List;
 public class PokemonRepository {
     private static String DB_URL = "jdbc:mysql://localhost:3306/pokedex?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
     private static String user = "root";
-    private static String password = "masp123123";
+    private static String password = "rootroot";
     private static Connection connection;
 
     public PokemonRepository() {
@@ -86,7 +86,7 @@ public class PokemonRepository {
     }
 
     public Pokemon deletePokemon(int id) {
-        Pokemon selectedPokemon = selectPokemon(id);
+        Pokemon selectedPokemon = selectById(id);
         String query = "DELETE FROM pokemon WHERE pokedex_number=?";
 
         try {
@@ -102,7 +102,7 @@ public class PokemonRepository {
         return selectedPokemon;
     }
 
-    public static Pokemon selectPokemon(int id) {
+    public Pokemon selectById(int id) {
         Pokemon selectedPokemon = null;
         try {
             Statement statement = connection.createStatement();

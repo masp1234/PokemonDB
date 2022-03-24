@@ -22,7 +22,7 @@
                     <th>HP</th>
                     <th>Primary type</th>
                     <th>Secondary type</th>
-                    <th>Delete</th>
+
                 </tr>
 
                 <tr th:each="pokemon: ${pokemon}">
@@ -36,8 +36,8 @@
                     <td th:text="${pokemon.hp}">120</td>
                     <td th:text="${pokemon.primaryType}">Grass</td>
                     <td th:text="${pokemon.secondaryType}">Ghost</td>
-                    <td>
-                        <a th:href="@{'/delete/' + ${pokemon.pokedexNumber}}">Delete button</a></td>
+                    <td><a th:href="@{'/delete/' + ${pokemon.pokedexNumber}}">Delete button</a></td>
+                        <td><a th:href="@{'/show/' + ${pokemon.pokedexNumber}}">Select Pokemon</a></td>
                 </tr>
 
             </table>
