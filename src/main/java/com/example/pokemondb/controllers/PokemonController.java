@@ -26,8 +26,8 @@ public class PokemonController {
 
     }
 
-    @GetMapping("/delete/{id}")
 
+    @GetMapping("/delete/{id}")
     //Pathvariable skal matche parameteren i GetMapping
     public String deletePokemon(@PathVariable("id") int id) {
         pokemonService.deletePokemon(id);
@@ -35,6 +35,10 @@ public class PokemonController {
         return "redirect:/allPokemon";
     }
 
+    @GetMapping("/selectPokemon/{id}")
+    public String selectPokemon(@PathVariable("id") int id) {
+
+    }
         /*
     @PostMapping(value = "/all-pokemon")
     public String deletePokemon(@RequestParam("pokedexNumber") int id) {
