@@ -40,7 +40,6 @@ public class PokemonController {
     @GetMapping("/show/{id}")
     public String selectPokemon(@PathVariable("id") int id, Model model) {
         Pokemon selectedPokemon = pokemonService.selectById(id);
-        int tal = selectedPokemon.getPokedexNumber();
         model.addAttribute("pokemon", selectedPokemon);
         return "redirect:/showSinglePokemon";
     }

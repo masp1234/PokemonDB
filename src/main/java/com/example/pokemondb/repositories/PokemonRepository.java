@@ -12,7 +12,7 @@ import java.util.List;
 public class PokemonRepository {
     private static String DB_URL = "jdbc:mysql://localhost:3306/pokedex?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
     private static String user = "root";
-    private static String password = "rootroot";
+    private static String password = "masp123123";
     private static Connection connection;
 
     public PokemonRepository() {
