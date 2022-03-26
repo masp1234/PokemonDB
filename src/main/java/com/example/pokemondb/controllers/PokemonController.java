@@ -56,6 +56,8 @@ public class PokemonController {
 
 
         /*
+
+        //Gammel Version af delete
     @PostMapping(value = "/all-pokemon")
     public String deletePokemon(@RequestParam("pokedexNumber") int id) {
        pokemonService.deletePokemon(id);
