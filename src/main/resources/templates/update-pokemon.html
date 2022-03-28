@@ -8,7 +8,8 @@
 </head>
 <body>
 <form class="form-container" action="/update-pokemon" method="POST">
-    <label for="pokedexNumber">Pokedex Number</label>
+
+    <!-- Ingen label fordi feltet er gemt væk -->
     <input id="pokedexNumber" type="hidden" name="pokedexNumber" th:value="${pokemon.pokedexNumber}">
 
     <label for="attack">Attack</label>
