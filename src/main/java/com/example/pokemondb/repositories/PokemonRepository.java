@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public class PokemonRepository {
-    private static String DB_URL = "jdbc:mysql://localhost:3306/pokedex?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
+    private static String DB_URL = "jdbc:mysql://localhost:3306/pokemon?useSSL=false&serverTimezone=UTC"; //efter3306 skriver hvad det er for en tabel
     private static String user = "root";
     private static String password = "masp123123";
     private static Connection connection;
@@ -102,11 +102,12 @@ public class PokemonRepository {
         return selectedPokemon;
     }
 
-    public static Pokemon selectPokemon(int id) {
+    public Pokemon selectPokemon(int id) {
         Pokemon selectedPokemon = null;
         try {
-            Statement statement = connection.createStatement();
-            String query = "SELECT * FROM pokemon WHERE pokedex_number = " + id;
+            String query = "SELECT * FROM pokemon WHERE pokedex_number= " + id;
+            Statement statement = connection.prepareStatement(query);
+
             ResultSet rs = statement.executeQuery(query);
 
             while (rs.next()) {
@@ -131,17 +132,36 @@ public class PokemonRepository {
         }
         return selectedPokemon;
     }
-  /*  public void updateUser(int userId) {
-        Pokemon selectPokemon = selectPokemon(userId);
 
-        System.out.println("Du har valgt at redigere: " + selectPokemon);
-        Scanner input = new Scanner(System.in);
-        System.out.println("Indtast nyt pokedex nummer: ");
-        String newName = input.nextLine();
-        System.out.println("Vælg nyt password: ");
-        String newPassword = input.nextLine();
-        System.out.println("Vælg nyt gruppe id");
-        int newGroupID = Integer.parseInt(input.nextLine());
+    public void updatePokemon(Pokemon pokemon) {
+        String query = "UPDATE pokemon SET attack = ?, defence = ?, " +
+                          "hp = ?, name = ?, primary_type = ?, secondary_type = ?, " +
+                            "special_attack = ?, special_defence = ?, speed = ? " +
+                        "WHERE pokedex_number = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pokemon.getAttack());
+            preparedStatement.setInt(2, pokemon.getDefence());
+            preparedStatement.setInt(3, pokemon.getHp());
+            preparedStatement.setString(4, pokemon.getName());
+            preparedStatement.setString(5, pokemon.getPrimaryType());
+            preparedStatement.setString(6, pokemon.getSecondaryType());
+            preparedStatement.setInt(7, pokemon.getSpecialAttack());
+            preparedStatement.setInt(8, pokemon.getSpecialDefence());
+            preparedStatement.setInt(9, pokemon.getSpeed());
+            preparedStatement.setInt(10, pokemon.getPokedexNumber());
+
+            preparedStatement.executeUpdate();
+
+        }
+        catch(SQLException e) {
+            System.out.print("Kunne ikke opdatere pokemon: ");
+            e.printStackTrace();
+        }
+
+    }
+  /*
 
         String query = "UPDATE brugere SET brugernavn = ?, kodeord = ?, gruppe_id = ? " +
                 "WHERE id_bruger = ?";

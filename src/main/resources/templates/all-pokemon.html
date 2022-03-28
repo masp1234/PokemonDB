@@ -37,13 +37,17 @@
                     <td th:text="${pokemon.primaryType}">Grass</td>
                     <td th:text="${pokemon.secondaryType}">Ghost</td>
                     <td>
-                        <a th:href="@{'/delete/' + ${pokemon.pokedexNumber}}">Delete button</a></td>
+                        <a th:href="@{'/delete/' + ${pokemon.pokedexNumber}}">Delete</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/update/' + ${pokemon.pokedexNumber}}">Edit</a>
+                    </td>
                 </tr>
 
             </table>
             <form class="form-container" action="/all-pokemon" method="POST">
                 <label for="pokedexNumber">Pokedex Number</label>
-                    <input type="number" name="pokedexNumber">
+                    <input id="pokedexNumber" type="number" name="pokedexNumber">
 
                     <button type="submit">Submit</button>
             </form>
