@@ -4,44 +4,58 @@
     <meta charset="UTF-8"/>
     <title></title>
     <link rel="stylesheet" href="../static/styles/form.css" th:href="@{/styles/form.css}"/>
-    <link rel="stylesheet" href="../static/styles/page-container.css" th:href="@{/styles/page-container}"/>
+    <link rel="stylesheet" href="../static/styles/page-container.css" th:href="@{/styles/page-container.css}"/>
 </head>
 <body>
-<form class="form-container" action="/update-pokemon" method="POST">
 
-    <!-- Ingen label fordi feltet er gemt væk -->
-    <input id="pokedexNumber" type="hidden" name="pokedexNumber" th:value="${pokemon.pokedexNumber}">
-
-    <label for="attack">Attack</label>
-    <input id="attack" type="number" name="attack" th:value="${pokemon.attack}">
-
-    <label for="defence">Defence</label>
-    <input id="defence" type="number" name="defence" th:value="${pokemon.defence}">
-
-    <label for="hp">HP</label>
-    <input id="hp" type="number" name="hp" th:value="${pokemon.hp}">
-
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" th:value="${pokemon.name}">
-
-    <label for="primaryType">Primary Type</label>
-    <input id="primaryType" type="text" name="primaryType" th:value="${pokemon.primaryType}">
-
-    <label for="secondaryType">Secondary Type</label>
-    <input id ="secondaryType" type="text" name="secondaryType" th:value="${pokemon.secondaryType}">
-
-    <label for="specialAttack">Special Attack</label>
-    <input id="specialAttack" type="number" name="specialAttack" th:value="${pokemon.specialAttack}">
-
-    <label for="specialDefence">Special Defence</label>
-    <input id="specialDefence" type="number" name="specialDefence" th:value="${pokemon.specialDefence}">
-
-    <label for="speed">Speed</label>
-    <input id="speed" type="number" name="speed" th:value="${pokemon.speed}">
+<div class="page-container">
 
 
-    <button type="submit">Submit</button>
-</form>
+    <section class="section-container">
+        <form class="form-container" action="/update-pokemon" method="POST">
+
+            <img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+            + ${pokemon.pokedexNumber} + '.png'}" alt="pokemon image" width="150">
+
+            <!-- Ingen label fordi feltet er gemt væk -->
+            <input id="pokedexNumber" type="hidden" name="pokedexNumber" th:value="${pokemon.pokedexNumber}">
+
+            <label for="attack">Attack</label>
+            <input id="attack" type="number" name="attack" th:value="${pokemon.attack}">
+
+            <label for="defence">Defence</label>
+            <input id="defence" type="number" name="defence" th:value="${pokemon.defence}">
+
+            <label for="hp">HP</label>
+            <input id="hp" type="number" name="hp" th:value="${pokemon.hp}">
+
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" th:value="${pokemon.name}">
+
+            <label for="primaryType">Primary Type</label>
+            <input id="primaryType" type="text" name="primaryType" th:value="${pokemon.primaryType}">
+
+            <label for="secondaryType">Secondary Type</label>
+            <input id ="secondaryType" type="text" name="secondaryType" th:value="${pokemon.secondaryType}">
+
+            <label for="specialAttack">Special Attack</label>
+            <input id="specialAttack" type="number" name="specialAttack" th:value="${pokemon.specialAttack}">
+
+            <label for="specialDefence">Special Defence</label>
+            <input id="specialDefence" type="number" name="specialDefence" th:value="${pokemon.specialDefence}">
+
+            <label for="speed">Speed</label>
+            <input id="speed" type="number" name="speed" th:value="${pokemon.speed}">
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <img src="../static/gifs/pokeball.gif" th:src="@{gifs/pokeball.gif}" alt="pokeball">
+        
+
+    </section>
+</div>
 
 </body>
 </html>
