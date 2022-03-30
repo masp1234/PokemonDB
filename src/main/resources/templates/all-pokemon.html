@@ -12,6 +12,7 @@
             
             <table>
                 <tr>
+                    <th>Pokemon</th>
                     <th>Pokedex number</th>
                     <th>Name</th>
                     <th>Speed</th>
@@ -26,7 +27,8 @@
                 </tr>
 
                 <tr th:each="pokemon: ${pokemon}">
-                    <td> <img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + ${pokemon.pokedexNumber} + '.png'}" alt="pokemon image"> </td>
+                    <td> <img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+                     + ${pokemon.pokedexNumber} + '.png'}" alt="pokemon image"> </td>
                     <td th:text="${pokemon.pokedexNumber}">1</td>
                     <td th:text="${pokemon.name}">Pokemon</td>
                     <td th:text="${pokemon.speed}">50</td>

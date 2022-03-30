@@ -25,8 +25,6 @@ public class PokemonController {
         return "all-pokemon.html";
 
     }
-
-
     @GetMapping("/delete/{id}")
     //Pathvariable skal matche parameteren i GetMapping
     public String deletePokemon(@PathVariable("id") int id) {
@@ -34,8 +32,6 @@ public class PokemonController {
 
         return "redirect:/allPokemon";
     }
-
-
 
     @GetMapping("/update/{id}")
     public String selectPokemon(@PathVariable("id") int id, Model model) {
@@ -52,13 +48,6 @@ public class PokemonController {
         return "redirect:/allPokemon";
 
     }
-
-    //updatePokemon (@ModelAttribute Pokemon pokemon -> redirect til allPokemon
-
-
-
-
-
         /*
     @PostMapping(value = "/all-pokemon")
     public String deletePokemon(@RequestParam("pokedexNumber") int id) {
@@ -66,7 +55,6 @@ public class PokemonController {
 
         return "redirect:/allPokemon";
     }
-
          */
     @PostMapping(value = "/add-new-pokemon")
     public String addPokemon(@RequestParam("pokedexNumber") int id,
@@ -81,7 +69,6 @@ public class PokemonController {
                              @RequestParam("speed") int speed) {
         pokemonService.addPokemon(new Pokemon(id, name, speed, specialDefence, specialAttack,
                                                 defence, attack, hp, primaryType, secondaryType));
-
 
         return "redirect:/allPokemon";
     }

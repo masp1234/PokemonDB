@@ -161,28 +161,5 @@ public class PokemonRepository {
         }
 
     }
-  /*
-
-        String query = "UPDATE brugere SET brugernavn = ?, kodeord = ?, gruppe_id = ? " +
-                "WHERE id_bruger = ?";
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, newName);
-            preparedStatement.setString(2, newPassword);
-            preparedStatement.setInt(3, newGroupID);
-            preparedStatement.setInt(4, userId);
-
-            preparedStatement.executeUpdate();
-            User updatedUser = new User(userId, newName, newPassword, newGroupID);
-            System.out.println("You updated: " + selectPokemon + "to " + updatedUser);
-        }
-        catch(Exception e) {
-            System.out.println("Kunne ikke opdatere bruger: " + e.getMessage());
-        }
-
-    }
-
-   */
 }
 
