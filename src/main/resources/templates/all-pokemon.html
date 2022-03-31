@@ -26,9 +26,9 @@
     <div class="page-container">
         <section class="section-container">
             
-            <table>
+            <table class="table">
                 <tr>
-                    <th>Pokemon</th>
+                    <th class="col">Pokemon</th>
                     <th>Pokedex number</th>
                     <th>Name</th>
                     <th>Speed</th>
@@ -42,7 +42,7 @@
                     <th>Delete</th>
                 </tr>
                 
-                <tr th:each="pokemon: ${pokemon}">
+                <tr class="table-dark" th:each="pokemon: ${pokemon}">
                     <td> <img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
                      + ${pokemon.pokedexNumber} + '.png'}" alt="pokemon image"> </td>
                     <td th:text="${pokemon.pokedexNumber}">1</td>
