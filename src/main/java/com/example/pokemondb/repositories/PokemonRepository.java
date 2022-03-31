@@ -11,10 +11,12 @@ import java.util.List;
 
 @Repository
 public class PokemonRepository {
-    private static String DB_URL; //husk
+    private static String DB_URL; //husk databasenavn sidst i URL
     private static String user;
     private static String password;
     private static Connection connection;
+
+    // Hvis det ikke virker, så prøv at implementer interfacet EnvironmentAware
     private Environment env;
 
     public PokemonRepository(Environment env) {
