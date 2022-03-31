@@ -2,6 +2,7 @@ package com.example.pokemondb.repositories;
 
 
 import com.example.pokemondb.models.Pokemon;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -10,12 +11,14 @@ import java.util.List;
 
 @Repository
 public class PokemonRepository {
-    private static String DB_URL; //efter3306 skriver hvad det er for en tabel
+    private static String DB_URL; //husk
     private static String user;
     private static String password;
     private static Connection connection;
+    private Environment env;
 
-    public PokemonRepository() {
+    public PokemonRepository(Environment env) {
+        this.env = env;
         connectToMySQL();
     }
 
@@ -76,10 +79,10 @@ public class PokemonRepository {
     }
 
     public void connectToMySQL() {
-        DB_URL = System.getenv("db_url");
-        user = System.getenv("db_user");
-        password = System.getenv("db_password");
 
+        DB_URL = env.getProperty("db_url");
+        user = env.getProperty("db_user");
+        password = env.getProperty("db_password");
 
         try {
             connection = DriverManager.getConnection(DB_URL, user, password);
