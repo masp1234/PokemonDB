@@ -79,6 +79,8 @@ public class PokemonRepository {
         DB_URL = System.getenv("db_url");
         user = System.getenv("db_user");
         password = System.getenv("db_password");
+
+
         try {
             connection = DriverManager.getConnection(DB_URL, user, password);
             System.out.println("Virker nu");
