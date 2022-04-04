@@ -12,7 +12,7 @@
 <div class="container">
 
 
-    <form>
+  <!--  <form>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -28,44 +28,46 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      -->
 
 
-        <form class="form-container" action="/add-new-pokemon" method="POST">
+        <form action="/add-new-pokemon" method="POST">
         <div class="mb-3">
-            <label for="pokedexNumber" class="form-check label">Pokedex Number</label>
-            <input id="pokedexNumber" type="number" name="pokedexNumber">
+            <!-- mt-2 er margin-top 2 -->
+            <label for="pokedexNumber" class="form-label mt-2">Pokedex Number</label>
+            <input id="pokedexNumber" type="number" name="pokedexNumber" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="attack" class="form-check-label">Attack</label>
-            <input id="attack" type="number" name="attack">
+            <label for="attack" class="form-label mt-2">Attack</label>
+            <input id="attack" type="number" name="attack" class="form-control">
         </div>
 
-            <label for="defence" class="form-label">Defence</label>
-            <input id="defence" type="number" name="defence">
+            <label for="defence" class="form-label mt-2">Defence</label>
+            <input id="defence" type="number" name="defence" class="form-control">
 
             <label for="hp" class="form-label">HP</label>
-            <input id="hp" type="number" name="hp">
+            <input id="hp" type="number" name="hp" class="form-control">
 
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" type="text" name="name" class="form-control">
 
-            <label for="primaryType">Primary Type</label>
-            <input id="primaryType" type="text" name="primaryType">
+            <label for="primaryType" class="form-label">Primary Type</label>
+            <input id="primaryType" type="text" name="primaryType" class="form-control">
 
-            <label for="secondaryType">Secondary Type</label>
-            <input id ="secondaryType" type="text" name="secondaryType">
+            <label for="secondaryType" class="form-label">Secondary Type</label>
+            <input id ="secondaryType" type="text" name="secondaryType" class="form-control">
 
-            <label for="specialAttack">Special Attack</label>
-            <input id="specialAttack" type="number" name="specialAttack">
+            <label for="specialAttack" class="form-label">Special Attack</label>
+            <input id="specialAttack" type="number" name="specialAttack" class="form-control">
 
-            <label for="specialDefence">Special Defence</label>
-            <input id="specialDefence" type="number" name="specialDefence">
+            <label for="specialDefence" class="form-label">Special Defence</label>
+            <input id="specialDefence" type="number" name="specialDefence" class="form-control">
 
-            <label for="speed">Speed</label>
-            <input id="speed" type="number" name="speed">
+            <label for="speed" class="form-label">Speed</label>
+            <input id="speed" type="number" name="speed" class="form-control">
 
 
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
         </form>
         
         <img src="../static/gifs/pokeball.gif" th:src="@{gifs/pokeball.gif}" alt="pokeball">
