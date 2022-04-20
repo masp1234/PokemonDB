@@ -2,7 +2,7 @@ package com.example.pokemondb.repositories;
 
 
 import com.example.pokemondb.models.Pokemon;
-import org.springframework.core.env.Environment;
+import com.example.pokemondb.utilities.ConnectionManager;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -11,22 +11,16 @@ import java.util.List;
 
 @Repository
 public class PokemonRepository {
-    private static String DB_URL; //husk databasenavn sidst i URL
-    private static String user;
-    private static String password;
-    private static Connection connection;
+    // Kan også bare kalde metoden i ConnectionManager i
+    // construktor og have Connection connection som attribut
 
-    // Hvis det ikke virker, så prøv at implementer interfacet EnvironmentAware
-    private Environment env;
-
-    public PokemonRepository(Environment env) {
-        this.env = env;
-        connectToMySQL();
-    }
 
 
     public List<Pokemon> getAllPokemon() {
         ArrayList<Pokemon> pokemons = new ArrayList<>();
+
+        // Kan også bare kalde metoden i construktor og have Connection connection som attribut
+        Connection connection = ConnectionManager.connectToMySQL();
 
         try {
             Statement statement = connection.createStatement();
@@ -57,6 +51,7 @@ public class PokemonRepository {
     }
 
     public void insertPokemon(Pokemon pokemon) {
+        Connection connection = ConnectionManager.connectToMySQL();
         String query = "INSERT INTO pokemon VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
@@ -80,22 +75,8 @@ public class PokemonRepository {
         }
     }
 
-    public void connectToMySQL() {
-
-        DB_URL = env.getProperty("db_url");
-        user = env.getProperty("db_user");
-        password = env.getProperty("db_password");
-
-        try {
-            connection = DriverManager.getConnection(DB_URL, user, password);
-            System.out.println("Virker nu");
-        } catch (Exception e) {
-            System.out.println("Virker ikke: ");
-            e.printStackTrace();
-        }
-    }
-
     public Pokemon deletePokemon(int id) {
+        Connection connection = ConnectionManager.connectToMySQL();
         Pokemon selectedPokemon = selectPokemon(id);
         String query = "DELETE FROM pokemon WHERE pokedex_number=?";
 
@@ -113,6 +94,7 @@ public class PokemonRepository {
     }
 
     public Pokemon selectPokemon(int id) {
+        Connection connection = ConnectionManager.connectToMySQL();
         Pokemon selectedPokemon = null;
         try {
             String query = "SELECT * FROM pokemon WHERE pokedex_number= " + id;
@@ -144,6 +126,7 @@ public class PokemonRepository {
     }
 
     public void updatePokemon(Pokemon pokemon) {
+        Connection connection = ConnectionManager.connectToMySQL();
         String query = "UPDATE pokemon SET attack = ?, defence = ?, " +
                           "hp = ?, name = ?, primary_type = ?, secondary_type = ?, " +
                             "special_attack = ?, special_defence = ?, speed = ? " +
